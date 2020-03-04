@@ -12,7 +12,11 @@ public class Player : MonoBehaviour {
     public Bar bar;
     public float timePassed = 0.25f;
     Animator animator;
+    Material material;
     bool active = true;
+    public bool dosentDie = false;
+    bool isDissolving = false;
+    float fade = 1f;
 
     private Vector3 targetPosition;
 
@@ -21,10 +25,11 @@ public class Player : MonoBehaviour {
         //cameraVelocity = FindObjectOfType<CameraMovement>().velocity;
         rigidbody2D = GetComponent<Rigidbody2D>();
         bar.SetMaxValue(energy);
+        material = GetComponent<SpriteRenderer>().material;
     }
 
     void Update(){
-        if (active) {
+        if (active || dosentDie) {
             handleInput();
             //Debug.Log(Time.time);
             if (Time.time >= timePassed) {
@@ -32,13 +37,25 @@ public class Player : MonoBehaviour {
                 LowerCurEnergy(0.25f);
             }
             if(curEnergy <= 0) {
+                isDissolving = true;
                 active = false;
                 FindObjectOfType<CameraMovement>().active = false;
                 animator.enabled = false;
+
             }
             SetTargetPosition();
             Move();
             //transform.position += transform.right * (Time.deltaTime * cameraVelocity);
+        }
+
+        if (isDissolving) {
+            fade -= Time.deltaTime * 0.5f;
+
+            if (fade <= 0f) {
+                fade = 0f;
+                isDissolving = false;
+            }
+            material.SetFloat("_Fade", fade);
         }
     }
 

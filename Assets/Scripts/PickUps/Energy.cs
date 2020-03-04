@@ -23,10 +23,6 @@ public class Energy : MonoBehaviour{
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			isDissolving = true;
-		}
-
 		if (isDissolving) {
 			fade -= Time.deltaTime * 3;
 
