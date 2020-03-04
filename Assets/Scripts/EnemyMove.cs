@@ -10,9 +10,12 @@ public class EnemyMove : MonoBehaviour
     public float finalPos = 110;
     public float velocityX = 5;
     public bool active = true;
+    private float randomFactor;
     void Start()
     {
         cameraPos = FindObjectOfType<CameraMovement>().transform.position.x;
+        //randomFactor = Random.Range(1f, 2f);
+        randomFactor = 1;
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class EnemyMove : MonoBehaviour
         if (active) {
             cameraPos = FindObjectOfType<CameraMovement>().transform.position.x;
             if (cameraPos >= movePos) {
-                transform.position += transform.right * (Time.deltaTime * velocityX);
+                transform.position += transform.right * (Time.deltaTime * (velocityX * randomFactor));
             }
             if (cameraPos > finalPos) {
                 active = false;

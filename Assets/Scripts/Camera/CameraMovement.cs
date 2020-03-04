@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
-    public float velocity = 2;
+    public float velocity = 28;
     public bool active = true;
     void Start() {
         
