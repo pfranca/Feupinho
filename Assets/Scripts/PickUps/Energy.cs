@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Energy : MonoBehaviour{
+public class Energy : MonoBehaviour {
 	Material material;
 	bool isActive = true;
 	bool isDissolving = false;

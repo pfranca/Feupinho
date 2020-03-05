@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public bool dosentDie = false;
     bool isDissolving = false;
     float fade = 1f;
+    public bool won = false;
 
     private Vector3 targetPosition;
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour {
     }
 
     void Update(){
-        if (active || dosentDie) {
+        if (active) {
             handleInput();
             //Debug.Log(Time.time);
             if (Time.time >= timePassed) {
@@ -158,6 +159,15 @@ public class Player : MonoBehaviour {
         }
         bar.SetCurValue(curEnergy);
         
+    }
+    public void Dissolve() {
+        isDissolving = true;
+        active = false;
+        velocityX = 0;
+        velocityY = 0;
+    }
+    public void Won() {
+        won = true;
     }
     void SetCurEnergy(int value) {
         curEnergy = value;

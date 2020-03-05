@@ -64,10 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\EnemyMove.cs" />
+    <Compile Include="Assets\Scripts\Events\Dissolve.cs" />
+    <Compile Include="Assets\Scripts\Events\End.cs" />
+    <Compile Include="Assets\Scripts\Events\EnemyMove.cs" />
+    <Compile Include="Assets\Scripts\Events\FireWork.cs" />
+    <Compile Include="Assets\Scripts\Events\RandomizeAnimationTimer.cs" />
     <Compile Include="Assets\Scripts\PickUps\Energy.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\RandomizeAnimationTimer.cs" />
     <Compile Include="Assets\Scripts\Ui\Bar.cs" />
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:/Users/DaSno/Desktop/DJCO PROJETO/Feupinho/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>

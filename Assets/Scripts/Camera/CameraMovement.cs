@@ -9,6 +9,10 @@ public class CameraMovement : MonoBehaviour {
         
     }
 
+    public void Stop() {
+        active = false;
+    }
+
     void Update() {
         //shit code
         if (active) {
