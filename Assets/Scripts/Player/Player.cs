@@ -148,7 +148,7 @@ public class Player : MonoBehaviour {
 
     }
 
-    void LowerCurEnergy(float value) {
+    public void LowerCurEnergy(float value) {
         curEnergy -= value;
         bar.SetCurValue(curEnergy);
     }
