@@ -11,13 +11,15 @@ public class Player : MonoBehaviour {
     public float curEnergy = 100;
     public Bar bar;
     public float timePassed = 0.25f;
+    public float timeTillStart;
     Animator animator;
     Material material;
-    bool active = true;
+    bool active = false;
     public bool dosentDie = false;
     bool isDissolving = false;
     float fade = 1f;
     public bool won = false;
+    public bool started = false;
 
     private Vector3 targetPosition;
 
@@ -32,17 +34,23 @@ public class Player : MonoBehaviour {
     }
 
     void Update(){
+        if (Input.GetKey(KeyCode.Mouse0) && !started) {
+            active = true;
+            FindObjectOfType<CameraMovement>().SetActive();
+            started = true;
+            timeTillStart = Time.time;
+        }
         if (active) {
             handleInput();
             //Debug.Log(Time.time);
-            if (Time.time >= timePassed) {
+            if ((Time.time-timeTillStart) >= timePassed) {
                 timePassed += 0.03125f;
                 LowerCurEnergy(0.25f);
             }
             if(curEnergy <= 0) {
                 isDissolving = true;
                 active = false;
-                FindObjectOfType<CameraMovement>().active = false;
+                FindObjectOfType<CameraMovement>().Stop();
                 animator.enabled = false;
 
             }
@@ -75,6 +83,9 @@ public class Player : MonoBehaviour {
     }
     void FixedUpdate() {
         //handleInput();
+    }
+    public bool GetStarted() {
+        return started;
     }
     void handleInput() {
         /*int moved = 0;
@@ -170,6 +181,8 @@ public class Player : MonoBehaviour {
     }
     public void Won() {
         won = true;
+        Color color = new Color(0, 255, 0, 0.2f);
+        material.SetColor("_Color", color);
     }
     void SetCurEnergy(int value) {
         curEnergy = value;

@@ -13,7 +13,6 @@ public class BlackVirusScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
 			if (isActive) {
-				//Debug.Log("OLAAAA");
 				FindObjectOfType<Player>().LowerCurEnergy(10f);
 				isDissolving = true;
 				isActive = false;
@@ -26,7 +25,6 @@ public class BlackVirusScript : MonoBehaviour
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
-        //material.SetFloat("_Scale", 0.6f);
         material.SetColor("_Color", Color.red);
     }
 
@@ -34,7 +32,7 @@ public class BlackVirusScript : MonoBehaviour
     void Update()
     {
         if (isDissolving) {
-			fade -= Time.deltaTime * 4;
+			fade -= Time.deltaTime * 2;
 
 			if (fade <= 0f) {
 				fade = 0f;

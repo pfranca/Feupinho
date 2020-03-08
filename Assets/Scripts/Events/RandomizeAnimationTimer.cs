@@ -11,7 +11,6 @@ public class RandomizeAnimationTimer : MonoBehaviour {
         float num = Random.Range(0.6f, 1.3f);
         animator.speed = num;
         material = GetComponent<SpriteRenderer>().material;
-        color = new Color(0, 184, 255, 0);
-        material.SetColor("_Color", color);
+        
     }
 }

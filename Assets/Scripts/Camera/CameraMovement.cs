@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
     public float velocity = 28;
-    public bool active = true;
+    bool active = false;
     void Start() {
         
     }
 
     public void Stop() {
         active = false;
+    }
+    public void SetActive() {
+        active = true;
     }
 
     void Update() {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4562427600055180307}
   - component: {fileID: 4562427600055180308}
   - component: {fileID: 4562427600055180309}
+  - component: {fileID: 2258242642267451888}
   m_Layer: 0
   m_Name: MiniTentacle
   m_TagString: Untagged
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a70954611b8a3e5438059663fdee3107, type: 2}
+  - {fileID: 2100000, guid: 820145d651bfe114cb4f534dd6fe0206, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingOrder: -4
   m_Sprite: {fileID: 7028325769904605368, guid: b01ec86f4d7cc07418f65ef86d0afb5a,
     type: 3}
-  m_Color: {r: 0.4360871, g: 0.4433962, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,7 +115,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.16, y: -0.02}
@@ -155,5 +156,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c32dd24cd5ddee4b834b18d88956302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2258242642267451888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562427600055180311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256c884dcfbf2f4448ba5fdba9978665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -26,6 +26,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Fade: 1
-    - _Scale: 14
+    - _Scale: 14.3
     m_Colors:
     - _Color: {r: 4, g: 0, b: 1.9198608, a: 0}

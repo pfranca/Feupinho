@@ -9,7 +9,6 @@ public class Energy : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
 			if (isActive) {
-				//Debug.Log("OLAAAA");
 				FindObjectOfType<Player>().UpCurEnergy(20f);
 				isDissolving = true;
 				isActive = false;
@@ -18,7 +17,6 @@ public class Energy : MonoBehaviour {
         }
     }
 	void Start() {
-		// Get a reference to the material
 		material = GetComponent<SpriteRenderer>().material;
 		material.SetColor("_Color", Color.green);
 	}

@@ -44,8 +44,9 @@ public class End : MonoBehaviour {
         if (collision.gameObject.tag == "Player") {
             Debug.Log("End");
             FindObjectOfType<CameraMovement>().Stop();
-            FindObjectOfType<Player>().Dissolve();
             FindObjectOfType<Player>().Won();
+            FindObjectOfType<Player>().Dissolve();
+            
             isDissolving = true;
             spriteRenderer.sprite = sprite1;
             end = true;
