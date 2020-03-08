@@ -20,6 +20,7 @@ public class Energy : MonoBehaviour {
 	void Start() {
 		// Get a reference to the material
 		material = GetComponent<SpriteRenderer>().material;
+		material.SetColor("_Color", Color.green);
 	}
 
 	void Update() {

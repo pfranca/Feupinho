@@ -26,13 +26,15 @@ public class BlackVirusScript : MonoBehaviour
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
+        //material.SetFloat("_Scale", 0.6f);
+        material.SetColor("_Color", Color.red);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (isDissolving) {
-			fade -= Time.deltaTime * 3;
+			fade -= Time.deltaTime * 4;
 
 			if (fade <= 0f) {
 				fade = 0f;
