@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Player : MonoBehaviour {
     //private float cameraVelocity;
@@ -83,16 +84,29 @@ public class Player : MonoBehaviour {
     }
     void Dissolver() {
         fade -= Time.deltaTime * 0.5f;
-
+        if (GameObject.Find("PlayerLight") != null) {
+            GameObject.Find("PlayerLight").GetComponent<Light2D>().intensity -= Time.deltaTime * 0.1f;
+        }
+        //FindObjectOfType<Light2D>().intensity -= Time.deltaTime * 0.5f;
         if (fade <= 0f) {
             fade = 0f;
+            if(isDissolving) {
+                if (GameObject.Find("PlayerLight") != null) {
+                    GameObject.Find("PlayerLight").SetActive(false);
+                }
+            }
+                
+
             isDissolving = false;
-            GameObject.Find("PlayerLight").SetActive(false);
+            
         }
         material.SetFloat("_Fade", fade);
     }
     void CheckOutOfCamera() {
-        if(transform.position.x < (FindObjectOfType<CameraMovement>().transform.position.x - 9.25f)) {
+        if(transform.position.x < (FindObjectOfType<CameraMovement>().transform.position.x - 9.3f)) {
+            if (GameObject.Find("PlayerBody") != null) {
+                GameObject.Find("PlayerBody").SetActive(false);
+            }
             Die();
         }
     }

@@ -1661,6 +1661,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 752411834}
+  - {fileID: 1743933275}
   m_Father: {fileID: 1310374330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4586,7 +4587,7 @@ GameObject:
   - component: {fileID: 752411835}
   - component: {fileID: 752411837}
   m_Layer: 0
-  m_Name: SpremSheet_0
+  m_Name: PlayerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4602,8 +4603,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.18, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1743933275}
+  m_Children: []
   m_Father: {fileID: 203538845}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9653,11 +9653,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743933274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9100001, y: 0.2, z: 0}
-  m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 1}
+  m_LocalPosition: {x: 1.73, y: 0, z: 0}
+  m_LocalScale: {x: 1.6666664, y: 1.6666664, z: 1}
   m_Children: []
-  m_Father: {fileID: 752411834}
-  m_RootOrder: 0
+  m_Father: {fileID: 203538845}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1743933276
 MonoBehaviour:
