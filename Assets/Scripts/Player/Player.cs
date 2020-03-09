@@ -35,46 +35,27 @@ public class Player : MonoBehaviour {
 
     void Update(){
         if (Input.GetKey(KeyCode.Mouse0) && !started) {
-            active = true;
             FindObjectOfType<CameraMovement>().SetActive();
-            started = true;
             timeTillStart = Time.time;
+            active = true;
+            started = true;
         }
         if (active) {
-            handleInput();
-            //Debug.Log(Time.time);
-            if ((Time.time-timeTillStart) >= timePassed) {
-                timePassed += 0.03125f;
-                LowerCurEnergy(0.25f);
-            }
-            if(curEnergy <= 0) {
-                isDissolving = true;
-                active = false;
-                FindObjectOfType<CameraMovement>().Stop();
-                animator.enabled = false;
-
-            }
             SetTargetPosition();
             Move();
+            //Move();
+            //Debug.Log(Time.time);
+
+
             //transform.position += transform.right * (Time.deltaTime * cameraVelocity);
         }
 
-        if (isDissolving) {
-            fade -= Time.deltaTime * 0.5f;
-
-            if (fade <= 0f) {
-                fade = 0f;
-                isDissolving = false;
-            }
-            material.SetFloat("_Fade", fade);
-        }
+        
     }
 
     void SetTargetPosition() {
         targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         targetPosition.z = transform.position.z;
-
-        
     }
     void Move() {
         //rigidbody2D.velocity = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime); 
@@ -82,11 +63,82 @@ public class Player : MonoBehaviour {
         //rigidbody2D.MovePosition(rigidbody2D.transform.position + targetPosition * velocityX * Time.fixedDeltaTime);
     }
     void FixedUpdate() {
-        //handleInput();
+        if (active) {
+            DecreaseEnergy();
+            if (curEnergy <= 0) {
+                Die();
+            }
+        }
+        if (isDissolving) {
+            Dissolver();
+        }
+        CheckOutOfCamera();
+    }
+    void DecreaseEnergy() {
+        if ((Time.time - timeTillStart) >= timePassed) {
+            timePassed += 0.03125f;
+            LowerCurEnergy(0.25f);
+            FindObjectOfType<Score>().changeScore((transform.position.x/5)*1/Time.time);
+        }
+    }
+    void Dissolver() {
+        fade -= Time.deltaTime * 0.5f;
+
+        if (fade <= 0f) {
+            fade = 0f;
+            isDissolving = false;
+            GameObject.Find("PlayerLight").SetActive(false);
+        }
+        material.SetFloat("_Fade", fade);
+    }
+    void CheckOutOfCamera() {
+        if(transform.position.x < (FindObjectOfType<CameraMovement>().transform.position.x - 9.25f)) {
+            Die();
+        }
     }
     public bool GetStarted() {
         return started;
     }
+
+    public void Die() {
+        isDissolving = true;
+        active = false;
+        FindObjectOfType<CameraMovement>().Stop();
+        FindObjectOfType<Score>().SetScore(0);
+        animator.enabled = false;
+    }
+    public void LowerCurEnergy(float value) {
+        curEnergy -= value;
+        bar.SetCurValue(curEnergy);
+    }
+    public void UpCurEnergy(float value) {
+        curEnergy += value;
+        if(curEnergy > 100) {
+            curEnergy = energy;
+        }
+        bar.SetCurValue(curEnergy);
+        
+    }
+    public void Dissolve() {
+        isDissolving = true;
+        active = false;
+        velocityX = 0;
+        velocityY = 0;
+    }
+    public void Won() {
+        won = true;
+        Color color = new Color(0, 255, 0, 0.2f);
+        material.SetColor("_Color", color);
+    }
+    void SetCurEnergy(int value) {
+        curEnergy = value;
+    }
+
+
+
+
+
+
     void handleInput() {
         /*int moved = 0;
         if (Input.GetKey(KeyCode.RightArrow)) {
@@ -161,31 +213,4 @@ public class Player : MonoBehaviour {
 
     }
 
-    public void LowerCurEnergy(float value) {
-        curEnergy -= value;
-        bar.SetCurValue(curEnergy);
-    }
-    public void UpCurEnergy(float value) {
-        curEnergy += value;
-        if(curEnergy > 100) {
-            curEnergy = energy;
-        }
-        bar.SetCurValue(curEnergy);
-        
-    }
-    public void Dissolve() {
-        isDissolving = true;
-        active = false;
-        velocityX = 0;
-        velocityY = 0;
-    }
-    public void Won() {
-        won = true;
-        Color color = new Color(0, 255, 0, 0.2f);
-        material.SetColor("_Color", color);
-    }
-    void SetCurEnergy(int value) {
-        curEnergy = value;
-    }
-    
 }

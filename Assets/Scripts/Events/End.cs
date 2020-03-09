@@ -13,6 +13,7 @@ public class End : MonoBehaviour {
     bool over = false;
     void Start(){
         material = GetComponent<SpriteRenderer>().material;
+        material.SetFloat("_Scale", 5);
     }
 
     void Update(){
@@ -42,16 +43,13 @@ public class End : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("End");
             FindObjectOfType<CameraMovement>().Stop();
             FindObjectOfType<Player>().Won();
             FindObjectOfType<Player>().Dissolve();
-            
+            FindObjectOfType<Score>().changeScore(100000*1/Time.time);
             isDissolving = true;
             spriteRenderer.sprite = sprite1;
             end = true;
-            
-
         }
     }
 }

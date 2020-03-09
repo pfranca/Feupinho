@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\PickUps\Energy.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Ui\Bar.cs" />
+    <Compile Include="Assets\Scripts\Ui\Score.cs" />
     <Compile Include="Assets\Scripts\Ui\StartText.cs" />
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:/Users/DaSno/Desktop/DJCO PROJETO/Feupinho2/Feupinho/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>

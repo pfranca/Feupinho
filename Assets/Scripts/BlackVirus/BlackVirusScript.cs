@@ -13,7 +13,8 @@ public class BlackVirusScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
 			if (isActive) {
-				FindObjectOfType<Player>().LowerCurEnergy(10f);
+                FindObjectOfType<Score>().changeScore(-100);
+                FindObjectOfType<Player>().LowerCurEnergy(10f);
 				isDissolving = true;
 				isActive = false;
 			}
