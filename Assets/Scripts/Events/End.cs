@@ -50,6 +50,8 @@ public class End : MonoBehaviour {
             isDissolving = true;
             spriteRenderer.sprite = sprite1;
             end = true;
+            FindObjectOfType<AudioManager>().Play("Extra_Firework1");
+            FindObjectOfType<AudioManager>().Play("Celebrate");
         }
     }
 }

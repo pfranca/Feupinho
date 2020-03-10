@@ -15,7 +15,8 @@ public class BlackVirusScript : MonoBehaviour
 			if (isActive) {
                 FindObjectOfType<Score>().changeScore(-100);
                 FindObjectOfType<Player>().LowerCurEnergy(10f);
-				isDissolving = true;
+                FindObjectOfType<AudioManager>().Play("GotHit");
+                isDissolving = true;
 				isActive = false;
 			}
             

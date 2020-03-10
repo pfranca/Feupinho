@@ -9,6 +9,7 @@ public class FireWork : MonoBehaviour
     public Animator animator;
     private float generatedTime;
     private float timeTillAction = 0;
+    private bool soundPlayed = false;
     // Start is called before the first frame update
     void Start() {
         spriteRenderer.enabled = false;
@@ -22,12 +23,18 @@ public class FireWork : MonoBehaviour
             if(timeTillAction == 0) {
                 timeTillAction = generatedTime + Time.time;
             }
-            else if (Time.time >= timeTillAction) {
+            else if(Time.time >= timeTillAction) {
                 spriteRenderer.enabled = true;
                 animator.speed = 1;
-            }            
+            }
+            if(!soundPlayed) {
+                if(Time.time >= timeTillAction) {
+                    soundPlayed = true;
+                    
+                }  
+            }
         }
-        if (FindObjectOfType<Player>().won) {
+        if(FindObjectOfType<Player>().won && active == false) {
             active = true;
         }
     }

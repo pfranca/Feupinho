@@ -20,7 +20,12 @@ public class Player : MonoBehaviour {
     bool isDissolving = false;
     float fade = 1f;
     public bool won = false;
+    public bool dead = false;
     public bool started = false;
+
+    private bool played_deadMusic = false;
+    public float timeTill_deadMusic = 1f;
+    private float timeOfDeath = 0;
 
     private Vector3 targetPosition;
 
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour {
     void Update(){
         if (Input.GetKey(KeyCode.Mouse0) && !started) {
             FindObjectOfType<CameraMovement>().SetActive();
+            FindObjectOfType<AudioManager>().Play("Theme");
             timeTillStart = Time.time;
             active = true;
             started = true;
@@ -66,6 +72,7 @@ public class Player : MonoBehaviour {
     void FixedUpdate() {
         if (active) {
             DecreaseEnergy();
+            CheckOutOfCamera();
             if (curEnergy <= 0) {
                 Die();
             }
@@ -73,7 +80,15 @@ public class Player : MonoBehaviour {
         if (isDissolving) {
             Dissolver();
         }
-        CheckOutOfCamera();
+        if (dead)
+            PlayDeadMusic();
+        
+    }
+    private void PlayDeadMusic() {
+        if(Time.time > (timeOfDeath + timeTill_deadMusic) && !played_deadMusic){
+            FindObjectOfType<AudioManager>().Play("Dies");
+            played_deadMusic = true;
+        }
     }
     void DecreaseEnergy() {
         if ((Time.time - timeTillStart) >= timePassed) {
@@ -117,9 +132,14 @@ public class Player : MonoBehaviour {
     public void Die() {
         isDissolving = true;
         active = false;
+        dead = true;
         FindObjectOfType<CameraMovement>().Stop();
         FindObjectOfType<Score>().SetScore(0);
+        FindObjectOfType<AudioManager>().Stop("Theme");
+        FindObjectOfType<AudioManager>().Play("Dying");
         animator.enabled = false;
+
+        timeOfDeath = Time.time;
     }
     public void LowerCurEnergy(float value) {
         curEnergy -= value;
@@ -143,6 +163,7 @@ public class Player : MonoBehaviour {
         won = true;
         Color color = new Color(0, 255, 0, 0.2f);
         material.SetColor("_Color", color);
+        FindObjectOfType<AudioManager>().Stop("Theme");
     }
     void SetCurEnergy(int value) {
         curEnergy = value;
