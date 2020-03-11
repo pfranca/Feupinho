@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Player : MonoBehaviour {
     //private float cameraVelocity;
+    public ParticleSystem playerParticleSystem;
     new public Rigidbody2D rigidbody2D;
     public float velocityX = 1f;
     public float velocityY = 1f;
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour {
             started = true;
         }
         if (active) {
-            SetTargetPosition();
             Move();
             //Move();
             //Debug.Log(Time.time);
@@ -59,14 +59,12 @@ public class Player : MonoBehaviour {
 
         
     }
-
-    void SetTargetPosition() {
-        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.z = transform.position.z;
-    }
     void Move() {
+        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (targetPosition - transform.position).normalized;
+        rigidbody2D.velocity = new Vector2(direction.x * velocityX, direction.y * velocityY);
         //rigidbody2D.velocity = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime); 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime);
         //rigidbody2D.MovePosition(rigidbody2D.transform.position + targetPosition * velocityX * Time.fixedDeltaTime);
     }
     void FixedUpdate() {
@@ -137,7 +135,10 @@ public class Player : MonoBehaviour {
         FindObjectOfType<Score>().SetScore(0);
         FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Play("Dying");
+
         animator.enabled = false;
+        playerParticleSystem.Stop();
+        rigidbody2D.velocity = Vector2.zero;
 
         timeOfDeath = Time.time;
     }
@@ -160,22 +161,20 @@ public class Player : MonoBehaviour {
         velocityY = 0;
     }
     public void Won() {
-        won = true;
-        Color color = new Color(0, 255, 0, 0.2f);
-        material.SetColor("_Color", color);
-        FindObjectOfType<AudioManager>().Stop("Theme");
+        if (!dead) {
+            won = true;
+            Color color = new Color(0, 255, 0, 0.2f);
+            material.SetColor("_Color", color);
+            FindObjectOfType<AudioManager>().Stop("Theme");
+            playerParticleSystem.Stop();
+            rigidbody2D.velocity = Vector2.zero;
+        }
+        
     }
-    void SetCurEnergy(int value) {
-        curEnergy = value;
-    }
 
 
-
-
-
-
-    void handleInput() {
-        /*int moved = 0;
+    /*void handleInput() {
+        int moved = 0;
         if (Input.GetKey(KeyCode.RightArrow)) {
             rigidbody2D.velocity = new Vector2(velocityX, 0);
             moved++;
@@ -216,36 +215,35 @@ public class Player : MonoBehaviour {
         }
         */
 
-        /*int aux = 0;
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.position += transform.right * (Time.deltaTime * velocityX);
-            animator.speed = 3;
-            aux = 1;
-        }
-        if(Input.GetKey(KeyCode.LeftArrow)) {
-            transform.position -= transform.right * (Time.deltaTime * velocityX);
-            aux = 2;
-        }
-        if(Input.GetKey(KeyCode.UpArrow)) {
-            transform.position += transform.up * (Time.deltaTime * velocityY);
-            aux = 0;
-        }
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            transform.position -= transform.up * (Time.deltaTime * velocityY);
-            aux = 0;
-        }
-
-        if((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)) && Input.GetKey(KeyCode.RightArrow)) {
-            aux = 1;
-        }
-
-        if(aux == 0) {
-            animator.speed = 1;
-        }
-        else if(aux == 2) {
-            animator.speed = 0.4f;
-        }*/
-
+    /*int aux = 0;
+    if (Input.GetKey(KeyCode.RightArrow)) {
+        transform.position += transform.right * (Time.deltaTime * velocityX);
+        animator.speed = 3;
+        aux = 1;
     }
+    if(Input.GetKey(KeyCode.LeftArrow)) {
+        transform.position -= transform.right * (Time.deltaTime * velocityX);
+        aux = 2;
+    }
+    if(Input.GetKey(KeyCode.UpArrow)) {
+        transform.position += transform.up * (Time.deltaTime * velocityY);
+        aux = 0;
+    }
+    if (Input.GetKey(KeyCode.DownArrow)) {
+        transform.position -= transform.up * (Time.deltaTime * velocityY);
+        aux = 0;
+    }
+
+    if((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)) && Input.GetKey(KeyCode.RightArrow)) {
+        aux = 1;
+    }
+
+    if(aux == 0) {
+        animator.speed = 1;
+    }
+    else if(aux == 2) {
+        animator.speed = 0.4f;
+    }
+   }*/
 
 }
