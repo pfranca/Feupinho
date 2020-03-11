@@ -27,7 +27,8 @@ public class BlackVirusScript : MonoBehaviour
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
-        material.SetColor("_Color", Color.red);
+        Color color = new Color(150, 0, 0, 0f);
+        material.SetColor("_Color", color);
     }
 
     // Update is called once per frame

@@ -12,13 +12,15 @@ public class Energy : MonoBehaviour {
 				FindObjectOfType<Player>().UpCurEnergy(20f);
 				isDissolving = true;
 				isActive = false;
+				FindObjectOfType<AudioManager>().Play("EnergyUp");
 			}
             
         }
     }
 	void Start() {
 		material = GetComponent<SpriteRenderer>().material;
-		material.SetColor("_Color", Color.green);
+		Color color = new Color(0, 150, 0, 0f);
+		material.SetColor("_Color", color);
 	}
 
 	void Update() {

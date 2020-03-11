@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
         rigidbody2D = GetComponent<Rigidbody2D>();
         bar.SetMaxValue(energy);
         material = GetComponent<SpriteRenderer>().material;
-        Color color = new Color(255,0,0,0.2f);
+        Color color = new Color(100,0,0,1f);
         material.SetColor("_Color", color);
     }
 
