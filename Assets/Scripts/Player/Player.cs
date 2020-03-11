@@ -4,35 +4,44 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class Player : MonoBehaviour {
-    //private float cameraVelocity;
     public ParticleSystem playerParticleSystem;
     new public Rigidbody2D rigidbody2D;
+    public Bar bar;
+    Animator animator;
+    Material material;
+
     public float velocityX = 1f;
     public float velocityY = 1f;
     public int energy = 100; //max value
     public float curEnergy = 100;
-    public Bar bar;
-    public float timePassed = 0.25f;
-    public float timeTillStart;
-    Animator animator;
-    Material material;
-    bool active = false;
-    public bool dosentDie = false;
-    bool isDissolving = false;
+
+    float timePassed = 0.25f;
+    float timeTillStart;
+    float timeTill_deadMusic = 1f;
+    float timeOfDeath = 0;
     float fade = 1f;
+
+    bool active = false;
+    bool isDissolving = false;
+    
+    public bool dosentDie = false;
     public bool won = false;
     public bool dead = false;
-    public bool started = false;
 
+    public bool started = false;
+    public bool started_extra = true;
+    public bool doubleStarted = false;
     private bool played_deadMusic = false;
-    public float timeTill_deadMusic = 1f;
-    private float timeOfDeath = 0;
+
+    
 
     private Vector3 targetPosition;
 
+
+
+
     void Start() {
         animator = GetComponent<Animator>();
-        //cameraVelocity = FindObjectOfType<CameraMovement>().velocity;
         rigidbody2D = GetComponent<Rigidbody2D>();
         bar.SetMaxValue(energy);
         material = GetComponent<SpriteRenderer>().material;
@@ -40,24 +49,42 @@ public class Player : MonoBehaviour {
         material.SetColor("_Color", color);
     }
 
+
+    void canon() {
+        // camera -8, 0
+        if (FindObjectOfType<CameraMovement>().transform.position.x < -8) {
+            FindObjectOfType<CameraMovement>().transform.position += transform.right * Time.deltaTime * (200 * 0.3f);
+            transform.position += transform.right * Time.deltaTime * 199* 0.3f;
+            
+        }
+        else {
+            started = true;
+            doubleStarted = false;
+        }
+        if (FindObjectOfType<CameraMovement>().transform.position.y < 0) {
+            FindObjectOfType<CameraMovement>().transform.position += transform.up * Time.deltaTime * (60 * 0.3f);
+            transform.position += transform.up * Time.deltaTime * (67 * 0.3f);
+        }
+        
+
+    }
+
     void Update(){
         if (Input.GetKey(KeyCode.Mouse0) && !started) {
+            doubleStarted = true;    
+        }
+        if (doubleStarted) {
+            canon();
+        }
+        if (started && started_extra) {
+            Color color2 = new Color(255f / 255, 121f / 255, 180f / 255, 0.9f);
+            GameObject.Find("PlayerLight").GetComponent<Light2D>().color = color2;
             FindObjectOfType<CameraMovement>().SetActive();
             FindObjectOfType<AudioManager>().Play("Theme");
             timeTillStart = Time.time;
             active = true;
-            started = true;
-        }
-        if (active) {
-            Move();
-            //Move();
-            //Debug.Log(Time.time);
-
-
-            //transform.position += transform.right * (Time.deltaTime * cameraVelocity);
-        }
-
-        
+            started_extra = false;
+        }  
     }
     void Move() {
         targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -69,6 +96,7 @@ public class Player : MonoBehaviour {
     }
     void FixedUpdate() {
         if (active) {
+            Move();
             DecreaseEnergy();
             CheckOutOfCamera();
             if (curEnergy <= 0) {
@@ -126,6 +154,9 @@ public class Player : MonoBehaviour {
     public bool GetStarted() {
         return started;
     }
+    public bool GetDoubleStarted() {
+        return doubleStarted;
+    }
 
     public void Die() {
         isDissolving = true;
@@ -165,85 +196,11 @@ public class Player : MonoBehaviour {
             won = true;
             Color color = new Color(0, 255, 0, 0.2f);
             material.SetColor("_Color", color);
+            FindObjectOfType<CameraMovement>().Stop();
             FindObjectOfType<AudioManager>().Stop("Theme");
             playerParticleSystem.Stop();
             rigidbody2D.velocity = Vector2.zero;
         }
         
     }
-
-
-    /*void handleInput() {
-        int moved = 0;
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            rigidbody2D.velocity = new Vector2(velocityX, 0);
-            moved++;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            rigidbody2D.velocity = new Vector2(-velocityX, 0);
-            moved++;
-        }
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            rigidbody2D.velocity = new Vector2(0, velocityY);
-            moved++;
-        }
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            rigidbody2D.velocity = new Vector2(0, -velocityY);
-            moved++;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) {
-            rigidbody2D.velocity = new Vector2(velocityX, velocityY);
-            moved++;
-        }
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) {
-            rigidbody2D.velocity = new Vector2(-velocityX, velocityY);
-            moved++;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) {
-            rigidbody2D.velocity = new Vector2(velocityX, -velocityY);
-            moved++;
-        }
-        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) {
-            rigidbody2D.velocity = new Vector2(-velocityX, -velocityY);
-            moved++;
-        }
-
-        if (moved == 70) {
-            rigidbody2D.velocity = new Vector2(cameraVelocity, 0);
-        }
-        */
-
-    /*int aux = 0;
-    if (Input.GetKey(KeyCode.RightArrow)) {
-        transform.position += transform.right * (Time.deltaTime * velocityX);
-        animator.speed = 3;
-        aux = 1;
-    }
-    if(Input.GetKey(KeyCode.LeftArrow)) {
-        transform.position -= transform.right * (Time.deltaTime * velocityX);
-        aux = 2;
-    }
-    if(Input.GetKey(KeyCode.UpArrow)) {
-        transform.position += transform.up * (Time.deltaTime * velocityY);
-        aux = 0;
-    }
-    if (Input.GetKey(KeyCode.DownArrow)) {
-        transform.position -= transform.up * (Time.deltaTime * velocityY);
-        aux = 0;
-    }
-
-    if((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)) && Input.GetKey(KeyCode.RightArrow)) {
-        aux = 1;
-    }
-
-    if(aux == 0) {
-        animator.speed = 1;
-    }
-    else if(aux == 2) {
-        animator.speed = 0.4f;
-    }
-   }*/
-
 }
