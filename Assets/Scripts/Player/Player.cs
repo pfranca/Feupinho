@@ -178,6 +178,9 @@ public class Player : MonoBehaviour {
     public bool GetDoubleStarted() {
         return doubleStarted;
     }
+    public bool GetTripleStarted() {
+        return tripleStarted;
+    }
 
     public void Die() {
         animator.SetBool("dead", true);

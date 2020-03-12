@@ -8,7 +8,7 @@ public class StartText : MonoBehaviour {
 
     void Update() {
         if (active) {
-            if (FindObjectOfType<Player>().GetDoubleStarted()) {
+            if (FindObjectOfType<Player>().GetTripleStarted()) {
                 GameObject.Find("StartText").SetActive(false);
                 active = false;
             }
