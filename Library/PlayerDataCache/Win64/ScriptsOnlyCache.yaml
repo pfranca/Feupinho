@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - EnemyMove
     - Energy
     - FireWork
+    - GameController
     - Player
     - RandomizeAnimationTimer
     - Score
@@ -70,6 +71,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -198,77 +200,81 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13496}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 13506}
     - Class: 114
-      Script: {instanceID: 13564}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13786}
+      Script: {instanceID: 13706}
     - Class: 114
-      Script: {instanceID: 13874}
+      Script: {instanceID: 13788}
     - Class: 114
-      Script: {instanceID: 13946}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13948}
     - Class: 114
-      Script: {instanceID: 13966}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13968}
     - Class: 114
-      Script: {instanceID: 14066}
+      Script: {instanceID: 13974}
     - Class: 114
-      Script: {instanceID: 14108}
+      Script: {instanceID: 14068}
     - Class: 114
-      Script: {instanceID: 14120}
+      Script: {instanceID: 14110}
     - Class: 114
-      Script: {instanceID: 14150}
+      Script: {instanceID: 14122}
     - Class: 114
-      Script: {instanceID: 14162}
+      Script: {instanceID: 14152}
     - Class: 114
-      Script: {instanceID: 14236}
+      Script: {instanceID: 14164}
     - Class: 114
-      Script: {instanceID: 14480}
+      Script: {instanceID: 14238}
     - Class: 114
-      Script: {instanceID: 14512}
+      Script: {instanceID: 14400}
     - Class: 114
-      Script: {instanceID: 14530}
+      Script: {instanceID: 14482}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14514}
     - Class: 114
-      Script: {instanceID: 14778}
+      Script: {instanceID: 14532}
     - Class: 114
-      Script: {instanceID: 14812}
+      Script: {instanceID: 14598}
     - Class: 114
-      Script: {instanceID: 14864}
+      Script: {instanceID: 14780}
     - Class: 114
-      Script: {instanceID: 14922}
+      Script: {instanceID: 14814}
     - Class: 114
-      Script: {instanceID: 15070}
+      Script: {instanceID: 14866}
     - Class: 114
-      Script: {instanceID: 15122}
+      Script: {instanceID: 14924}
     - Class: 114
-      Script: {instanceID: 15148}
+      Script: {instanceID: 15072}
     - Class: 114
-      Script: {instanceID: 15172}
+      Script: {instanceID: 15124}
     - Class: 114
-      Script: {instanceID: 15358}
+      Script: {instanceID: 15150}
     - Class: 114
-      Script: {instanceID: 15362}
+      Script: {instanceID: 15174}
     - Class: 114
-      Script: {instanceID: 15400}
+      Script: {instanceID: 15360}
     - Class: 114
-      Script: {instanceID: 15422}
+      Script: {instanceID: 15364}
+    - Class: 114
+      Script: {instanceID: 15402}
     - Class: 114
       Script: {instanceID: 15424}
     - Class: 114
-      Script: {instanceID: 15458}
+      Script: {instanceID: 15426}
     - Class: 114
-      Script: {instanceID: 15480}
+      Script: {instanceID: 15460}
     - Class: 114
-      Script: {instanceID: 15542}
+      Script: {instanceID: 15482}
     - Class: 114
-      Script: {instanceID: 15548}
+      Script: {instanceID: 15544}
+    - Class: 114
+      Script: {instanceID: 15550}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -500,7 +506,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 92bcdfa49323d7c6884277ee7084650d
+      Hash: a79b79948591626fbbd819ae4201f7a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -756,6 +762,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: VolumeProfile
+  - hash:
+      serializedVersion: 2
+      Hash: cae6bd7c28016fdc566e90814e40b1c8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameController
   - hash:
       serializedVersion: 2
       Hash: 3cae62e09a50c5d5aae8d0536b3d8fde

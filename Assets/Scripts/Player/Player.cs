@@ -31,9 +31,10 @@ public class Player : MonoBehaviour {
     public bool started = false;
     public bool started_extra = true;
     public bool doubleStarted = false;
+    public bool tripleStarted = false;
     private bool played_deadMusic = false;
 
-    
+    private float inicialPosX;
 
     private Vector3 targetPosition;
 
@@ -49,10 +50,21 @@ public class Player : MonoBehaviour {
         animator.enabled = false;
         material.SetColor("_Color", color);
         playerParticleSystem.Stop();
+        inicialPosX = transform.position.x;
     }
 
 
-    void canon() {
+    void LoadCannon() {
+        if(transform.position.x > (inicialPosX - 1)){
+            transform.position -= transform.right * Time.deltaTime * 3 * 0.3f;
+        }
+        else {
+            doubleStarted = true;
+            tripleStarted = false;
+        }
+        
+    }
+    void Cannon() {
         // camera -8, 0
         if (FindObjectOfType<CameraMovement>().transform.position.x < -8) {
             animator.enabled = true;
@@ -74,11 +86,15 @@ public class Player : MonoBehaviour {
     }
 
     void Update(){
+
         if (Input.GetKey(KeyCode.Mouse0) && !started) {
-            doubleStarted = true;    
+            tripleStarted = true;   
+        }
+        if(tripleStarted) {
+            LoadCannon();
         }
         if (doubleStarted) {
-            canon();
+            Cannon();
         }
         if (started && started_extra) {
             Color color2 = new Color(255f / 255, 121f / 255, 180f / 255, 0.9f);
@@ -210,5 +226,8 @@ public class Player : MonoBehaviour {
 
     public bool GetDead() {
         return dead;
+    }
+    public bool GetActive() {
+        return active;
     }
 }
