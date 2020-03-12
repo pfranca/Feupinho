@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
         
     }
     void Cannon() {
-        // camera -8, 0
+        // camera start -> -8, 0
         if (FindObjectOfType<CameraMovement>().transform.position.x < -8) {
             animator.enabled = true;
             playerParticleSystem.Play();
@@ -122,6 +122,7 @@ public class Player : MonoBehaviour {
             if (curEnergy <= 0) {
                 Die();
             }
+            animator.SetFloat("curEnergy", curEnergy);
         }
         if (isDissolving) {
             Dissolver();
@@ -179,6 +180,7 @@ public class Player : MonoBehaviour {
     }
 
     public void Die() {
+        animator.SetBool("dead", true);
         isDissolving = true;
         active = false;
         dead = true;
@@ -187,11 +189,13 @@ public class Player : MonoBehaviour {
         FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Play("Dying");
 
-        animator.enabled = false;
+        //
         playerParticleSystem.Stop();
         rigidbody2D.velocity = Vector2.zero;
 
         timeOfDeath = Time.time;
+        animator.speed = 0.1f;
+        //animator.enabled = false;
     }
     public void LowerCurEnergy(float value) {
         curEnergy -= value;

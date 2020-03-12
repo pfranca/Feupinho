@@ -6,32 +6,34 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
     public GameObject player;
     public GameObject restartButton;
-    public GameObject canonTrail;
+    public GameObject menuButton;
+    public GameObject cannonTrail;
     public GameObject audioController;
 
     //Play once
     private bool cannonSound = false; 
 
     void Update() {
-        PlayerDead(); //
-        PlayerActive(); //Start Game
+        PlayerDead();
+        PlayerActive(); //Start Playing
         PlayerDoubleStarted(); //Out of the cannon  
     }
 
     void PlayerDead() {
         if (player.GetComponent<Player>().GetDead()) {
-            restartButton.SetActive(true);   
+            restartButton.SetActive(true);
+            menuButton.SetActive(true);
         }
     }
     void PlayerActive() {
         if (player.GetComponent<Player>().GetActive()) {
-            canonTrail.SetActive(false);
+            cannonTrail.SetActive(false);
         }
     }
     void PlayerDoubleStarted() { 
         if (player.GetComponent<Player>().GetDoubleStarted()) {
             if (!cannonSound) {
-                canonTrail.SetActive(true);
+                cannonTrail.SetActive(true);
                 audioController.GetComponent<AudioManager>().Play("Cannon");
                 cannonSound = true;
             }
@@ -40,5 +42,9 @@ public class GameController : MonoBehaviour {
     }
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Menu() {
+        Debug.Log("MENU");
     }
 }
