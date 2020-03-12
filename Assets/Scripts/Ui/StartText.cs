@@ -8,8 +8,8 @@ public class StartText : MonoBehaviour {
 
     void Update() {
         if (active) {
-            if (FindObjectOfType<Player>().GetStarted()) {
-                GameObject.Find("Text").SetActive(false);
+            if (FindObjectOfType<Player>().GetDoubleStarted()) {
+                GameObject.Find("StartText").SetActive(false);
                 active = false;
             }
         }

@@ -46,13 +46,17 @@ public class Player : MonoBehaviour {
         bar.SetMaxValue(energy);
         material = GetComponent<SpriteRenderer>().material;
         Color color = new Color(100,0,0,1f);
+        animator.enabled = false;
         material.SetColor("_Color", color);
+        playerParticleSystem.Stop();
     }
 
 
     void canon() {
         // camera -8, 0
         if (FindObjectOfType<CameraMovement>().transform.position.x < -8) {
+            animator.enabled = true;
+            playerParticleSystem.Play();
             FindObjectOfType<CameraMovement>().transform.position += transform.right * Time.deltaTime * (200 * 0.3f);
             transform.position += transform.right * Time.deltaTime * 199* 0.3f;
             
@@ -202,5 +206,9 @@ public class Player : MonoBehaviour {
             rigidbody2D.velocity = Vector2.zero;
         }
         
+    }
+
+    public bool GetDead() {
+        return dead;
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Events\FireWork.cs" />
     <Compile Include="Assets\Scripts\Events\RandomizeAnimationTimer.cs" />
     <Compile Include="Assets\Scripts\PickUps\Energy.cs" />
+    <Compile Include="Assets\Scripts\Player\GameController.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Ui\Bar.cs" />
     <Compile Include="Assets\Scripts\Ui\Score.cs" />
