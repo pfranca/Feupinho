@@ -22,8 +22,12 @@ public class GameController : MonoBehaviour {
 
     void PlayerDead() {
         if (player.GetComponent<Player>().GetDead()) {
-            restartButton.SetActive(true);
-            menuButton.SetActive(true);
+            if (!player.GetComponent<Player>().isDissolving) {
+                restartButton.SetActive(true);
+                menuButton.SetActive(true);
+            }
+
+            
         }
     }
     void PlayerActive() {
@@ -43,8 +47,11 @@ public class GameController : MonoBehaviour {
     }
     void PlayerWin() {
         if (player.GetComponent<Player>().GetWon()) {
-            restartButton.SetActive(true);
-            menuButton.SetActive(true);
+            if (!player.GetComponent<Player>().isDissolving) {
+                restartButton.SetActive(true);
+                menuButton.SetActive(true);
+            }
+            
         }
     }
     public void Restart() {

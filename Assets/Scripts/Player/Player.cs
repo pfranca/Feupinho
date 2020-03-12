@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
     float fade = 1f;
 
     bool active = false;
-    bool isDissolving = false;
+    public bool isDissolving = false;
     
     public bool dosentDie = false;
     public bool won = false;
