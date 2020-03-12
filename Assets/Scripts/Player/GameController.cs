@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
         PlayerDead();
         PlayerActive(); //Start Playing
         PlayerDoubleStarted(); //Out of the cannon  
+        PlayerWin();
     }
 
     void PlayerDead() {
@@ -40,11 +41,17 @@ public class GameController : MonoBehaviour {
             
         }
     }
+    void PlayerWin() {
+        if (player.GetComponent<Player>().GetWon()) {
+            restartButton.SetActive(true);
+            menuButton.SetActive(true);
+        }
+    }
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Menu() {
-        Debug.Log("MENU");
+        SceneManager.LoadScene("Menu");
     }
 }

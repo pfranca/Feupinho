@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
         rigidbody2D = GetComponent<Rigidbody2D>();
         bar.SetMaxValue(energy);
         material = GetComponent<SpriteRenderer>().material;
-        Color color = new Color(100,0,0,1f);
+        Color color = new Color(60,0,0,1f);
         animator.enabled = false;
         material.SetColor("_Color", color);
         playerParticleSystem.Stop();
@@ -180,6 +180,9 @@ public class Player : MonoBehaviour {
     }
     public bool GetTripleStarted() {
         return tripleStarted;
+    }
+    public bool GetWon() {
+        return won;
     }
 
     public void Die() {
