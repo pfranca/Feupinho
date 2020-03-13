@@ -736,7 +736,7 @@ ScriptsOnlyBuild:
     className: TMP_TextEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 69999af78a0cb7f0f2bf402303c6e120
+      Hash: 4a49269ef22274b1754477af23c88508
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuController

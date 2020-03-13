@@ -11,8 +11,11 @@ public class GameController : MonoBehaviour {
     public GameObject audioController;
 
     //Play once
-    private bool cannonSound = false; 
+    private bool cannonSound = false;
 
+    private void Start() {
+        //Cursor.visible = false;
+    }
     void Update() {
         PlayerDead();
         PlayerActive(); //Start Playing

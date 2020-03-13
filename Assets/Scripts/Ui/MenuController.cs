@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour {
     public GameObject backButton;
     public GameObject allOptions;
     public GameObject fullscreenToggle;
+    public GameObject levelSelector;
 
     public TMPro.TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
@@ -22,6 +23,9 @@ public class MenuController : MonoBehaviour {
 
     bool options = false;
     bool back = false;
+    bool play = false;
+    bool loading = false;
+    int sideMenu = 1;
 
     private void Start() {
         if (Screen.fullScreen) {
@@ -59,7 +63,7 @@ public class MenuController : MonoBehaviour {
                 allOptions.SetActive(true);
             }
         }
-        if(back) {
+        if(back && sideMenu == 1) {
             if (camera.transform.position.x >= 0) {
                 camera.transform.position -= transform.right * (Time.deltaTime * (cameraVelocityX * 0.9f));
             }
@@ -69,14 +73,58 @@ public class MenuController : MonoBehaviour {
                 exitButton.SetActive(true);
             }
         }
+        if (back && sideMenu == 2 && !loading) {
+            if (camera.transform.position.x <= 0) {
+                camera.transform.position += transform.right * (Time.deltaTime * (cameraVelocityX * 0.9f));
+            }
+            else {
+                sideMenu = 1;
+                playButton.SetActive(true);
+                optionsButton.SetActive(true);
+                exitButton.SetActive(true);
+            }
+        }
+        if (play && !loading) {
+            if (camera.transform.position.x > -20) {
+                camera.transform.position -= transform.right * (Time.deltaTime * (cameraVelocityX * 0.9f));
+            }
+            else {
+                backButton.SetActive(true);
+                levelSelector.SetActive(true);
+                //allOptions.SetActive(true);
+            }
+        }
     }
-    public void Play() {
+    public void LoadLevel1() {
+        LoadLevel(1);
+    }
+    public void LoadLevel2() {
+        Debug.Log("2");
+    }
+    public void LoadLevel3() {
+        Debug.Log("3");
+    }
+    public void LoadLevel(int index) {
+
+        loading = true;
         playButton.SetActive(false);
         optionsButton.SetActive(false);
         exitButton.SetActive(false);
+        levelSelector.SetActive(false);
+        backButton.SetActive(false);
         options = false;
         back = false;
-        StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex + 1));
+
+
+        StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex + index));
+    }
+    public void Play() {
+        sideMenu = 2;
+        back = false;
+        play = true;
+        playButton.SetActive(false);
+        optionsButton.SetActive(false);
+        exitButton.SetActive(false);
     }
     public void Exit() {
         Application.Quit();
@@ -91,14 +139,17 @@ public class MenuController : MonoBehaviour {
     public void Back() {
         back = true;
         options = false;
+        play = false;
         backButton.SetActive(false);
         allOptions.SetActive(false);
+        levelSelector.SetActive(false);
 
     }
 
     IEnumerator Load(int index) {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
         loadingPanel.SetActive(true);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
+        
         
         while (!asyncOperation.isDone) {
             
