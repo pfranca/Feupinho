@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - ApplyColorShader
     - AudioManager
+    - BackSperm
     - Bar
     - BlackVirusScript
     - BlinkText
@@ -117,7 +118,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -190,6 +197,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14404}
     - Class: 114
+      Script: {instanceID: 14486}
+    - Class: 114
       Script: {instanceID: 14518}
     - Class: 114
       Script: {instanceID: 14536}
@@ -218,9 +227,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15464}
     - Class: 114
+      Script: {instanceID: 15486}
+    - Class: 114
       Script: {instanceID: 15548}
     - Class: 114
       Script: {instanceID: 15554}
+    - Class: 114
+      Script: {instanceID: 23620}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,6 +241,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -707,7 +722,7 @@ ScriptsOnlyBuild:
     className: TMP_TextEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 663214a8ae24eac23240bc267805510a
+      Hash: c553d01225eb34450e78a0f89d8c1679
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuController
@@ -1473,6 +1488,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: e255bde31023187a99f22dfc9c956f9f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackSperm
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

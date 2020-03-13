@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\BlackVirus\BlackVirusScript.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Events\ApplyColorShader.cs" />
+    <Compile Include="Assets\Scripts\Events\BackSperm.cs" />
     <Compile Include="Assets\Scripts\Events\Dissolve.cs" />
     <Compile Include="Assets\Scripts\Events\End.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyMove.cs" />
