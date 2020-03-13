@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - Energy
     - FireWork
     - GameController
+    - HighlightHandler
     - MenuController
     - Player
     - RandomizeAnimationTimer
@@ -76,10 +77,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -177,63 +176,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13710}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13880}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13952}
+      Script: {instanceID: 13882}
     - Class: 114
-      Script: {instanceID: 13956}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13958}
     - Class: 114
-      Script: {instanceID: 13978}
+      Script: {instanceID: 13974}
     - Class: 114
-      Script: {instanceID: 14114}
+      Script: {instanceID: 13980}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 14116}
     - Class: 114
-      Script: {instanceID: 14168}
+      Script: {instanceID: 14158}
     - Class: 114
-      Script: {instanceID: 14404}
+      Script: {instanceID: 14170}
     - Class: 114
-      Script: {instanceID: 14486}
+      Script: {instanceID: 14488}
     - Class: 114
-      Script: {instanceID: 14518}
+      Script: {instanceID: 14520}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14538}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 14604}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14872}
     - Class: 114
-      Script: {instanceID: 14928}
+      Script: {instanceID: 14930}
     - Class: 114
-      Script: {instanceID: 15076}
+      Script: {instanceID: 15078}
     - Class: 114
-      Script: {instanceID: 15128}
+      Script: {instanceID: 15130}
     - Class: 114
-      Script: {instanceID: 15178}
+      Script: {instanceID: 15180}
     - Class: 114
-      Script: {instanceID: 15364}
+      Script: {instanceID: 15366}
     - Class: 114
-      Script: {instanceID: 15368}
+      Script: {instanceID: 15370}
     - Class: 114
-      Script: {instanceID: 15406}
-    - Class: 114
-      Script: {instanceID: 15428}
+      Script: {instanceID: 15408}
     - Class: 114
       Script: {instanceID: 15430}
     - Class: 114
-      Script: {instanceID: 15464}
+      Script: {instanceID: 15432}
     - Class: 114
-      Script: {instanceID: 15486}
+      Script: {instanceID: 15466}
     - Class: 114
-      Script: {instanceID: 15548}
+      Script: {instanceID: 15488}
     - Class: 114
-      Script: {instanceID: 15554}
+      Script: {instanceID: 15550}
     - Class: 114
-      Script: {instanceID: 23620}
+      Script: {instanceID: 15556}
+    - Class: 114
+      Script: {instanceID: 53216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -324,35 +323,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 13792}
+      Script: {instanceID: 13794}
     - Class: 114
-      Script: {instanceID: 13956}
+      Script: {instanceID: 13958}
     - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 14126}
+      Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 14242}
+      Script: {instanceID: 14244}
     - Class: 114
-      Script: {instanceID: 14404}
+      Script: {instanceID: 14406}
     - Class: 114
-      Script: {instanceID: 14486}
+      Script: {instanceID: 14488}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14538}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14786}
     - Class: 114
-      Script: {instanceID: 14818}
+      Script: {instanceID: 14820}
     - Class: 114
-      Script: {instanceID: 15154}
+      Script: {instanceID: 15156}
     - Class: 114
-      Script: {instanceID: 15178}
+      Script: {instanceID: 15408}
     - Class: 114
-      Script: {instanceID: 15406}
+      Script: {instanceID: 15466}
     - Class: 114
-      Script: {instanceID: 15464}
+      Script: {instanceID: 15488}
     - Class: 114
-      Script: {instanceID: 15486}
+      Script: {instanceID: 53216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -722,7 +721,7 @@ ScriptsOnlyBuild:
     className: TMP_TextEventHandler
   - hash:
       serializedVersion: 2
-      Hash: c553d01225eb34450e78a0f89d8c1679
+      Hash: 2720a6131f9cc225adfeb12984a2cdbf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuController
@@ -894,6 +893,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ColorLookup
+  - hash:
+      serializedVersion: 2
+      Hash: e255bde31023187a99f22dfc9c956f9f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackSperm
   - hash:
       serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
@@ -1490,10 +1495,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: e255bde31023187a99f22dfc9c956f9f
+      Hash: fac8571238f64adb38c33d1fdc6e8144
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: BackSperm
+    className: HighlightHandler
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

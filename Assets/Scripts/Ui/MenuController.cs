@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour {
     public GameObject optionsButton;
     public GameObject exitButton;
     public GameObject backButton;
+    public GameObject allOptions;
     public new Camera camera;
     public Slider slider;
     public float cameraVelocityX = 40;
@@ -24,6 +25,7 @@ public class MenuController : MonoBehaviour {
             }
             else {
                 backButton.SetActive(true);
+                allOptions.SetActive(true);
             }
         }
         if(back) {
@@ -54,6 +56,7 @@ public class MenuController : MonoBehaviour {
         back = true;
         options = false;
         backButton.SetActive(false);
+        allOptions.SetActive(false);
 
     }
 
@@ -67,5 +70,9 @@ public class MenuController : MonoBehaviour {
             yield return null;
         }
 
+    }
+
+    public void SetFullscreen(bool isFullscreen) {
+        Screen.fullScreen = isFullscreen;
     }
 }
