@@ -10,6 +10,11 @@ public class MenuController : MonoBehaviour {
     public GameObject exitButton;
     public GameObject backButton;
     public GameObject allOptions;
+    public GameObject fullscreenToggle;
+
+    public TMPro.TMP_Dropdown resolutionDropdown;
+    Resolution[] resolutions;
+
     public new Camera camera;
     public Slider slider;
     public float cameraVelocityX = 40;
@@ -18,6 +23,32 @@ public class MenuController : MonoBehaviour {
     bool options = false;
     bool back = false;
 
+    private void Start() {
+        if (Screen.fullScreen) {
+            fullscreenToggle.GetComponent<Toggle>().isOn = true;
+        }
+        else {
+            fullscreenToggle.GetComponent<Toggle>().isOn = false;
+        }
+        GetResolutionDropdownInfo();
+
+    }
+    void GetResolutionDropdownInfo() {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int currentRes = 0;
+        for (int i = 0; i < resolutions.Length; i++) {
+            string option = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "Hz";
+            options.Add(option);
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height) {
+                currentRes = i;
+            }
+        }
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentRes;
+        resolutionDropdown.RefreshShownValue();
+    }
     void Update() {
         if (options) {
             if(camera.transform.position.x < 20) {
@@ -40,6 +71,11 @@ public class MenuController : MonoBehaviour {
         }
     }
     public void Play() {
+        playButton.SetActive(false);
+        optionsButton.SetActive(false);
+        exitButton.SetActive(false);
+        options = false;
+        back = false;
         StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void Exit() {
@@ -63,6 +99,7 @@ public class MenuController : MonoBehaviour {
     IEnumerator Load(int index) {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
         loadingPanel.SetActive(true);
+        
         while (!asyncOperation.isDone) {
             
             float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
@@ -74,5 +111,9 @@ public class MenuController : MonoBehaviour {
 
     public void SetFullscreen(bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
+    }
+    public void SetResolution(int index) {
+        Resolution resolution = resolutions[index];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }

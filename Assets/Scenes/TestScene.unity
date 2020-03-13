@@ -4606,6 +4606,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 3e29221ff2f7f4c478fe8186e8fcdd4b, type: 3}
   selectedSprite: {fileID: 21300000, guid: 86cf6452065782b4d935b909edb07e5a, type: 3}
   imageObject: {fileID: 1778750232}
+  xDimension: 0
+  YDimension: 0
 --- !u!1001 &735608120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5902,6 +5904,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 4d5507c0574e9a848a17ea838250ac09, type: 3}
   selectedSprite: {fileID: 21300000, guid: ea0ca3b88458a3a4a98e78f64f5e4f4e, type: 3}
   imageObject: {fileID: 413662299}
+  xDimension: 0
+  YDimension: 0
 --- !u!1 &921301293
 GameObject:
   m_ObjectHideFlags: 0
