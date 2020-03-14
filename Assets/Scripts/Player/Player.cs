@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
 
     private Vector3 targetPosition;
 
-
+    public bool speedUp = false;
 
 
     void Start() {
@@ -86,7 +86,6 @@ public class Player : MonoBehaviour {
     }
 
     void Update(){
-
         if (Input.GetKey(KeyCode.Mouse0) && !started) {
             tripleStarted = true;   
         }
@@ -116,7 +115,9 @@ public class Player : MonoBehaviour {
     }
     void FixedUpdate() {
         if (active) {
-            Move();
+            if (!speedUp) {
+                Move();
+            }
             DecreaseEnergy();
             CheckOutOfCamera();
             if (curEnergy <= 0) {

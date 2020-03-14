@@ -24,9 +24,10 @@ public class CameraMovement : MonoBehaviour {
                     increaser += 0.0125f;
                 }
             }*/
-
-
-            if (FindObjectOfType<Player>().rigidbody2D.position.x > (transform.position.x + 7)) {
+            /*if (FindObjectOfType<Player>().speedUp) {
+                transform.position += transform.right * (Time.deltaTime * (velocity * 4f));
+            }
+            else*/ if (FindObjectOfType<Player>().rigidbody2D.position.x > (transform.position.x + 7)) {
                 transform.position += transform.right * (Time.deltaTime * (velocity * 0.9f));
             }
             else if (FindObjectOfType<Player>().rigidbody2D.position.x > (transform.position.x + 5)) {

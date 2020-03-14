@@ -19,6 +19,7 @@ ScriptsOnlyBuild:
     - Player
     - RandomizeAnimationTimer
     - Score
+    - SpeedUp
     - StartText
     Unity.2D.SpriteShape.Runtime.dll:
     - UnityEngine.U2D.SpriteShape
@@ -361,6 +362,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15468}
     - Class: 114
       Script: {instanceID: 15490}
+    - Class: 114
+      Script: {instanceID: 20948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -592,7 +595,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 09b6033d82eaf10c05bb6666a96afa41
+      Hash: c16a97b0bceb1c0f0a3a7c455c82120c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1508,6 +1511,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 1b2a53df5e6b4cce70d0d28b45505131
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpeedUp
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
