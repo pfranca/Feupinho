@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 public class MenuController : MonoBehaviour {
     public GameObject loadingPanel;
     public GameObject playButton;
@@ -12,6 +13,10 @@ public class MenuController : MonoBehaviour {
     public GameObject allOptions;
     public GameObject fullscreenToggle;
     public GameObject levelSelector;
+    public GameObject audioController;
+    public AudioMixer audioMixer;
+    public GameObject musicSlider;
+    public GameObject soundSlider;
 
     public TMPro.TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
@@ -28,6 +33,14 @@ public class MenuController : MonoBehaviour {
     int sideMenu = 1;
 
     private void Start() {
+        float musicVolume;
+        float soundVolume;
+        audioMixer.GetFloat("music", out musicVolume);
+        musicSlider.GetComponent<Slider>().value = musicVolume;
+        audioMixer.GetFloat("sound", out soundVolume);
+        soundSlider.GetComponent<Slider>().value = soundVolume;
+
+        audioController.GetComponent<AudioManager>().Play("Theme");
         if (Screen.fullScreen) {
             fullscreenToggle.GetComponent<Toggle>().isOn = true;
         }
@@ -35,6 +48,7 @@ public class MenuController : MonoBehaviour {
             fullscreenToggle.GetComponent<Toggle>().isOn = false;
         }
         GetResolutionDropdownInfo();
+        
 
     }
     void GetResolutionDropdownInfo() {
@@ -166,5 +180,11 @@ public class MenuController : MonoBehaviour {
     public void SetResolution(int index) {
         Resolution resolution = resolutions[index];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    public void SetMusicVolume(float volume) {
+        audioMixer.SetFloat("music", volume);
+    }
+    public void SetSoundVolume(float volume) {
+        audioMixer.SetFloat("sound", volume);
     }
 }

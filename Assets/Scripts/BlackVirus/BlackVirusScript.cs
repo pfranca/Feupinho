@@ -9,13 +9,14 @@ public class BlackVirusScript : MonoBehaviour
 	bool isActive = true;
 	bool isDissolving = false;
 	float fade = 1f;
+    public GameObject audioControllerSound;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
 			if (isActive) {
                 FindObjectOfType<Score>().changeScore(-100);
                 FindObjectOfType<Player>().LowerCurEnergy(10f);
-                FindObjectOfType<AudioManager>().Play("GotHit");
+                audioControllerSound.GetComponent<AudioManager>().Play("GotHit");
                 isDissolving = true;
 				isActive = false;
 			}

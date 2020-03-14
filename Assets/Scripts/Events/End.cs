@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class End : MonoBehaviour {
+    public GameObject audioControllerSound;
     bool isDissolving = false;
     Material material;
     float fade = 1f;
@@ -50,8 +51,8 @@ public class End : MonoBehaviour {
             isDissolving = true;
             spriteRenderer.sprite = sprite1;
             end = true;
-            FindObjectOfType<AudioManager>().Play("Extra_Firework1");
-            FindObjectOfType<AudioManager>().Play("Celebrate");
+            audioControllerSound.GetComponent<AudioManager>().Play("Extra_Firework1");
+            audioControllerSound.GetComponent<AudioManager>().Play("Celebrate");
         }
     }
 }

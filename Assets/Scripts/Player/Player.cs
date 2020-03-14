@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public ParticleSystem playerParticleSystem;
     new public Rigidbody2D rigidbody2D;
     public Bar bar;
+    public GameObject audioControllerSound;
+    public GameObject audioControllerMusic;
     Animator animator;
     Material material;
 
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour {
             Color color2 = new Color(255f / 255, 121f / 255, 180f / 255, 0.9f);
             GameObject.Find("PlayerLight").GetComponent<Light2D>().color = color2;
             FindObjectOfType<CameraMovement>().SetActive();
-            FindObjectOfType<AudioManager>().Play("Theme");
+            audioControllerMusic.GetComponent<AudioManager>().Play("Theme");
             timeTillStart = Time.time;
             active = true;
             started_extra = false;
@@ -134,7 +136,7 @@ public class Player : MonoBehaviour {
     }
     private void PlayDeadMusic() {
         if(Time.time > (timeOfDeath + timeTill_deadMusic) && !played_deadMusic){
-            FindObjectOfType<AudioManager>().Play("Dies");
+            audioControllerSound.GetComponent<AudioManager>().Play("Dies");
             played_deadMusic = true;
         }
     }
@@ -193,8 +195,8 @@ public class Player : MonoBehaviour {
         dead = true;
         FindObjectOfType<CameraMovement>().Stop();
         FindObjectOfType<Score>().SetScore(0);
-        FindObjectOfType<AudioManager>().Stop("Theme");
-        FindObjectOfType<AudioManager>().Play("Dying");
+        audioControllerMusic.GetComponent<AudioManager>().Stop("Theme");
+        audioControllerSound.GetComponent<AudioManager>().Play("Dying");
 
         //
         playerParticleSystem.Stop();
@@ -228,7 +230,7 @@ public class Player : MonoBehaviour {
             Color color = new Color(0, 255, 0, 0.2f);
             material.SetColor("_Color", color);
             FindObjectOfType<CameraMovement>().Stop();
-            FindObjectOfType<AudioManager>().Stop("Theme");
+            audioControllerMusic.GetComponent<AudioManager>().Stop("Theme");
             playerParticleSystem.Stop();
             rigidbody2D.velocity = Vector2.zero;
         }
