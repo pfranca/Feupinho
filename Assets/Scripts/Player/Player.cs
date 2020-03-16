@@ -42,6 +42,8 @@ public class Player : MonoBehaviour {
 
     public bool speedUp = false;
 
+    public bool normal = true;
+
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -68,7 +70,13 @@ public class Player : MonoBehaviour {
     }
     void Cannon() {
         // camera start -> -8, 0
-        if (FindObjectOfType<CameraMovement>().transform.position.x < -8) {
+        float cameraValue;
+        if (normal) {
+            cameraValue = -8;
+        } else {
+            cameraValue = 25;
+        }
+        if (FindObjectOfType<CameraMovement>().transform.position.x < cameraValue) {
             animator.enabled = true;
             playerParticleSystem.Play();
             FindObjectOfType<CameraMovement>().transform.position += transform.right * Time.deltaTime * (200 * 0.3f);
@@ -132,7 +140,6 @@ public class Player : MonoBehaviour {
         }
         if (dead)
             PlayDeadMusic();
-        
     }
     private void PlayDeadMusic() {
         if(Time.time > (timeOfDeath + timeTill_deadMusic) && !played_deadMusic){
@@ -243,5 +250,4 @@ public class Player : MonoBehaviour {
     }
     public bool GetActive() {
         return active;
-    }
-}
+    }}

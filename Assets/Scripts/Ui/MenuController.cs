@@ -48,8 +48,6 @@ public class MenuController : MonoBehaviour {
             fullscreenToggle.GetComponent<Toggle>().isOn = false;
         }
         GetResolutionDropdownInfo();
-        
-
     }
     void GetResolutionDropdownInfo() {
         resolutions = Screen.resolutions;
@@ -157,21 +155,17 @@ public class MenuController : MonoBehaviour {
         backButton.SetActive(false);
         allOptions.SetActive(false);
         levelSelector.SetActive(false);
-
     }
 
     IEnumerator Load(int index) {
         loadingPanel.SetActive(true);
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
-        
-        
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index); 
         while (!asyncOperation.isDone) {
             
             float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
             slider.value = progress;
             yield return null;
         }
-
     }
 
     public void SetFullscreen(bool isFullscreen) {

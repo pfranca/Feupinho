@@ -79,4 +79,7 @@ public class CameraMovement : MonoBehaviour {
     public void SetVelocity(float value) {
         velocity = value;
     }
+    public void Deactivate() {
+        active = false;
+    }
 }
