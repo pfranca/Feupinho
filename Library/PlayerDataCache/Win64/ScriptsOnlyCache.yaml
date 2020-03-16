@@ -290,6 +290,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 68
       Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -608,7 +610,7 @@ ScriptsOnlyBuild:
     className: Renderer2DData
   - hash:
       serializedVersion: 2
-      Hash: e7703c8665d2eb7dcc6d3c5fd872bf9f
+      Hash: f6a19bfe6a2ba0d86345e2bba1e2ad69
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MadEgg

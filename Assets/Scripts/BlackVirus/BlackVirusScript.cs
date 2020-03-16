@@ -17,6 +17,7 @@ public class BlackVirusScript : MonoBehaviour {
                 isDissolving = true;
 				isActive = false;
                 this.GetComponent<Animator>().SetBool("Active", isActive);
+                
 			}
             
         }

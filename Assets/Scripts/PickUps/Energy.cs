@@ -10,7 +10,7 @@ public class Energy : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
 			if (isActive) {
-				FindObjectOfType<Player>().UpCurEnergy(50f);
+				FindObjectOfType<Player>().UpCurEnergy(30f);
 				isDissolving = true;
 				isActive = false;
 				audioControllerSound.GetComponent<AudioManager>().Play("EnergyUp");
