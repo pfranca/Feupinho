@@ -116,7 +116,7 @@ public class MenuController : MonoBehaviour {
         Debug.Log("2");
     }
     public void LoadLevel3() {
-        Debug.Log("3");
+        LoadLevel(2);
     }
     public void LoadLevel(int index) {
 

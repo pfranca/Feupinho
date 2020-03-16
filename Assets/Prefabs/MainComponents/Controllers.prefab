@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4188265729476279476
+--- !u!1 &2244310168651357284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4188265729476279475}
+  - component: {fileID: 2244310168651357283}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -16,24 +16,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4188265729476279475
+--- !u!4 &2244310168651357283
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265729476279476}
+  m_GameObject: {fileID: 2244310168651357284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4188265730745001144}
-  - {fileID: 4188265729532175478}
-  - {fileID: 4188265730600221616}
+  - {fileID: 2244310169584239720}
+  - {fileID: 2244310168908580006}
+  - {fileID: 2244310169980558176}
+  - {fileID: 575454742783096615}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4188265729532175480
+--- !u!1 &2244310168908580008
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,42 +42,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4188265729532175478}
-  - component: {fileID: 4188265729532175479}
+  - component: {fileID: 2244310168908580006}
+  - component: {fileID: 2244310168908580007}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: AudioControllerSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4188265729532175478
+--- !u!4 &2244310168908580006
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265729532175480}
+  m_GameObject: {fileID: 2244310168908580008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4188265729476279475}
+  m_Father: {fileID: 2244310168651357283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4188265729532175479
+--- !u!114 &2244310168908580007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265729532175480}
+  m_GameObject: {fileID: 2244310168908580008}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4435fd99af7974245b07ea74ee9fe505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 535536037116626931, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+  mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
     type: 2}
   sounds:
   - name: Theme
@@ -86,7 +87,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 535536037116626931, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
       type: 2}
     source: {fileID: 0}
   - name: Extra_Firework1
@@ -96,7 +97,8 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
     source: {fileID: 0}
   - name: Celebrate
     clip: {fileID: 8300000, guid: 80508d9ed3aa750478048812fc6bff1d, type: 3}
@@ -105,7 +107,8 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
     source: {fileID: 0}
   - name: Dies
     clip: {fileID: 8300000, guid: f996f07f9849c0741b45235975d92ce7, type: 3}
@@ -150,9 +153,30 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
     source: {fileID: 0}
---- !u!1 &4188265730600221617
+  - name: InterfaceHover
+    clip: {fileID: 8300000, guid: 66992e8b4e98029488f4a4348f02e11e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
+    source: {fileID: 0}
+  - name: InterfaceSelect
+    clip: {fileID: 8300000, guid: d8716fdd0f9bc0947bbc779af56de8c4, type: 3}
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 4292413249947819775, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
+    source: {fileID: 0}
+--- !u!1 &2244310169584239721
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,8 +184,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4188265730600221616}
-  - component: {fileID: 4188265730600221615}
+  - component: {fileID: 2244310169584239720}
+  - component: {fileID: 2244310169490594737}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2244310169584239720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244310169584239721}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2244310168651357283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2244310169490594737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244310169584239721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a529880a89e1c4ca70b0d2a9a540b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  restartButton: {fileID: 0}
+  menuButton: {fileID: 0}
+  cannonTrail: {fileID: 0}
+  audioController: {fileID: 2244310168908580008}
+--- !u!1 &2244310169980558177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2244310169980558176}
+  - component: {fileID: 2244310169980558207}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -169,27 +241,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4188265730600221616
+--- !u!4 &2244310169980558176
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265730600221617}
+  m_GameObject: {fileID: 2244310169980558177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4188265729476279475}
+  m_Father: {fileID: 2244310168651357283}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4188265730600221615
+--- !u!114 &2244310169980558207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265730600221617}
+  m_GameObject: {fileID: 2244310169980558177}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -224,7 +296,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &4188265730745001145
+--- !u!1 &3661358658745280568
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,43 +304,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4188265730745001144}
-  - component: {fileID: 4188265730785573729}
+  - component: {fileID: 575454742783096615}
+  - component: {fileID: 805021429426293635}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: AudioControllerMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4188265730745001144
+--- !u!4 &575454742783096615
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265730745001145}
+  m_GameObject: {fileID: 3661358658745280568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4188265729476279475}
-  m_RootOrder: 0
+  m_Father: {fileID: 2244310168651357283}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4188265730785573729
+--- !u!114 &805021429426293635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188265730745001145}
+  m_GameObject: {fileID: 3661358658745280568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a529880a89e1c4ca70b0d2a9a540b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4435fd99af7974245b07ea74ee9fe505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  restartButton: {fileID: 0}
-  menuButton: {fileID: 0}
-  cannonTrail: {fileID: 0}
-  audioController: {fileID: 4188265729532175480}
+  mixerGroup: {fileID: 535536037116626931, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+    type: 2}
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: c26c2249cf82df84cb01d2cbd4afd658, type: 3}
+    volume: 0.2
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 535536037116626931, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Dies
+    clip: {fileID: 8300000, guid: f996f07f9849c0741b45235975d92ce7, type: 3}
+    volume: 0.2
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 535536037116626931, guid: 7e29d8009482cfc49a2f53772dc8d24a,
+      type: 2}
+    source: {fileID: 0}

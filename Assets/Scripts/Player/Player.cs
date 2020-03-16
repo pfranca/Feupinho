@@ -136,7 +136,7 @@ public class Player : MonoBehaviour {
     }
     private void PlayDeadMusic() {
         if(Time.time > (timeOfDeath + timeTill_deadMusic) && !played_deadMusic){
-            audioControllerSound.GetComponent<AudioManager>().Play("Dies");
+            audioControllerMusic.GetComponent<AudioManager>().Play("Dies");
             played_deadMusic = true;
         }
     }
@@ -196,6 +196,7 @@ public class Player : MonoBehaviour {
         FindObjectOfType<CameraMovement>().Stop();
         FindObjectOfType<Score>().SetScore(0);
         audioControllerMusic.GetComponent<AudioManager>().Stop("Theme");
+        audioControllerMusic.GetComponent<AudioManager>().Stop("BossTheme");
         audioControllerSound.GetComponent<AudioManager>().Play("Dying");
 
         //

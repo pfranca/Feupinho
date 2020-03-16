@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BlackVirusScript : MonoBehaviour
-{
+public class BlackVirusScript : MonoBehaviour {
 
     Material material;
 	bool isActive = true;
@@ -19,24 +16,21 @@ public class BlackVirusScript : MonoBehaviour
                 audioControllerSound.GetComponent<AudioManager>().Play("GotHit");
                 isDissolving = true;
 				isActive = false;
+                this.GetComponent<Animator>().SetBool("Active", isActive);
 			}
             
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         material = GetComponent<SpriteRenderer>().material;
         Color color = new Color(150, 0, 0, 0f);
         material.SetColor("_Color", color);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (isDissolving) {
-			fade -= Time.deltaTime * 2;
+            fade -= Time.deltaTime * 2f;
 
 			if (fade <= 0f) {
 				fade = 0f;

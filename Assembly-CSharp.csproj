@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\BlackVirus\BlackVirusScript.cs" />
+    <Compile Include="Assets\Scripts\Boss\MadEgg.cs" />
+    <Compile Include="Assets\Scripts\Boss\Wave.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Events\ApplyColorShader.cs" />
     <Compile Include="Assets\Scripts\Events\BackSperm.cs" />

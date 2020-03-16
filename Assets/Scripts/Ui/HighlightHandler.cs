@@ -21,6 +21,7 @@ public class HighlightHandler : MonoBehaviour, IPointerEnterHandler, ISelectHand
         else {
             this.transform.localScale = new Vector3(1.4f, 1.4f, 1);
             imageObject.GetComponent<Image>().sprite = selectedSprite;
+            audioController.GetComponent<AudioManager>().Play("InterfaceHover");
             //imageObject.GetComponent<Image>().transform.localScale = new Vector3(70, 70, 1);
         }
         
@@ -45,6 +46,7 @@ public class HighlightHandler : MonoBehaviour, IPointerEnterHandler, ISelectHand
         }
         else {
             this.transform.localScale = new Vector3(1, 1, 1);
+            audioController.GetComponent<AudioManager>().Play("InterfaceSelect");
             //imageObject.GetComponent<Image>().= new Vector3(45, 45, 1);
             imageObject.GetComponent<Image>().sprite = normalSprite;
         }

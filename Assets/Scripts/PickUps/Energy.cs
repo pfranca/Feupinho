@@ -26,7 +26,7 @@ public class Energy : MonoBehaviour {
 
 	void Update() {
 		if (isDissolving) {
-			fade -= Time.deltaTime * 3;
+			fade -= Time.deltaTime * 2;
 
 			if (fade <= 0f) {
 				fade = 0f;
