@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wave : MonoBehaviour {
-    [SerializeField] float positionX = 0;
     [SerializeField] float timeToAction = 60;
     [SerializeField] float velocityX = 0;
     [SerializeField] new GameObject camera;
     [SerializeField] GameObject playerObject;
 
-    private float time;
-    private float timeTillAction;
-    private bool active;
+    private float time = 0;
+    private float timeTillAction = 0;
+    private bool active = false;
     private bool oneCycle = true;
 
     private CameraMovement cameraMovement;
@@ -33,7 +32,7 @@ public class Wave : MonoBehaviour {
             if(time > timeTillAction) {
                 this.transform.position -= transform.right * (velocityX * Time.deltaTime);
             }
-            if(time > (timeToAction + 200)) { //Go afk
+            if(time > (timeTillAction + 200)) { //Go afk
                 active = false;
             }
         }

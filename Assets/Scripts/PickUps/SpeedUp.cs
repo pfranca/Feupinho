@@ -12,14 +12,12 @@ public class SpeedUp : MonoBehaviour{
 		if (collision.gameObject.tag == "Player") {
 			active = true;
 			actTime = Time.time;
-			Debug.Log("AAA");
 			player.GetComponent<Player>().speedUp = true;
 		}
 	}
 	void Update() {
 		if (active) {
 			if((actTime + duration) > Time.time) {
-				Debug.Log("AAAAAA");
 
 				float velocityX = player.GetComponent<Player>().velocityX * velocityFactor;
 				

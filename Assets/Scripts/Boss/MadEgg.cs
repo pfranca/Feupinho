@@ -26,7 +26,6 @@ public class MadEgg : MonoBehaviour {
     }
     void Update() {
         if(cameraMovement.transform.position.x > 26) {
-            //this.transform.position = transform.right * (cameraMovement.transform.position.x+9);
             if (!musicPlay) {
                 audioControllerMusic.GetComponent<AudioManager>().Play("BossTheme");
                 musicPlay = true;

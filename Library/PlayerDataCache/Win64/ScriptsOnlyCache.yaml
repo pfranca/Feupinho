@@ -82,10 +82,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -355,6 +353,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13968}
     - Class: 114
       Script: {instanceID: 14084}
+    - Class: 114
+      Script: {instanceID: 14138}
     - Class: 114
       Script: {instanceID: 14254}
     - Class: 114
@@ -1023,7 +1023,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: bcd6c748dbbf44a3a9604ebcc0e50458
+      Hash: e8f068e9b536750ce9bd72b8c28ec399
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Wave

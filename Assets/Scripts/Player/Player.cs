@@ -213,6 +213,8 @@ public class Player : MonoBehaviour {
         timeOfDeath = Time.time;
         animator.speed = 0.1f;
         //animator.enabled = false;
+
+        transform.gameObject.tag = "Untagged";
     }
     public void LowerCurEnergy(float value) {
         curEnergy -= value;
