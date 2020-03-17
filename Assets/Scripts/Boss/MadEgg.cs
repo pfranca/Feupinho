@@ -5,6 +5,7 @@ using UnityEngine;
 public class MadEgg : MonoBehaviour {
     [SerializeField] new GameObject camera;
     [SerializeField] GameObject audioControllerMusic;
+    [SerializeField] GameObject actionLight;
 
     private bool musicPlay = false;
     private SpriteRenderer spriteRenderer;
@@ -20,7 +21,8 @@ public class MadEgg : MonoBehaviour {
     void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         cameraMovement = camera.GetComponent<CameraMovement>();
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        material = GetComponent<SpriteRenderer>().material;
     }
     void Update() {
         if(cameraMovement.transform.position.x > 26) {
@@ -32,6 +34,7 @@ public class MadEgg : MonoBehaviour {
             cameraMovement.Deactivate();
             if(Time.time > animeTime) {
                 spriteRenderer.sprite = sprite1;
+                actionLight.SetActive(false);
             }
         }
         
@@ -39,9 +42,11 @@ public class MadEgg : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Enemy") {
-            Debug.Log("Enemu");
             spriteRenderer.sprite = sprite2;
             animeTime = Time.time + animSecs;
+            Color color = new Color(60, 0, 0, 1f);
+            material.SetColor("_Color", color);
+            actionLight.SetActive(true);
         }
     }
 }

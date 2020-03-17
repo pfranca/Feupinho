@@ -7,6 +7,7 @@ public class BlackVirusScript : MonoBehaviour {
 	bool isDissolving = false;
 	float fade = 1f;
     public GameObject audioControllerSound;
+    public float dissolveValue = 2f;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
@@ -31,7 +32,7 @@ public class BlackVirusScript : MonoBehaviour {
 
     void Update() {
         if (isDissolving) {
-            fade -= Time.deltaTime * 2f;
+            fade -= Time.deltaTime * dissolveValue;
 
 			if (fade <= 0f) {
 				fade = 0f;

@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioControllerSound: {fileID: 0}
+  dissolveValue: 4
 --- !u!70 &8489122155657437430
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

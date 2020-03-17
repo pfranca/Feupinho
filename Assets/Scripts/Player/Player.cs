@@ -118,7 +118,7 @@ public class Player : MonoBehaviour {
     void Move() {
         targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (targetPosition - transform.position).normalized;
-        rigidbody2D.velocity = new Vector2(direction.x * velocityX, direction.y * velocityY);
+        rigidbody2D.velocity = new Vector2(direction.x * velocityX - 4, direction.y * velocityY);
         //rigidbody2D.velocity = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime); 
         //transform.position = Vector3.MoveTowards(transform.position, targetPosition, velocityX * Time.deltaTime);
         //rigidbody2D.MovePosition(rigidbody2D.transform.position + targetPosition * velocityX * Time.fixedDeltaTime);
