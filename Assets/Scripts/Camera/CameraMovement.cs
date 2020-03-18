@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
     public float velocity = 28;
     bool active = false;
-
+    [SerializeField] bool normalLevel = true;
     public void Stop() {
         active = false;
     }
@@ -14,7 +14,6 @@ public class CameraMovement : MonoBehaviour {
     }
 
     void Update() {
-        //shit code
         if (active) {
 
             /*float increaser = 0.000001f;
@@ -71,6 +70,10 @@ public class CameraMovement : MonoBehaviour {
             }
             else {
                 transform.position += transform.right * (Time.deltaTime * (velocity * 0.1f));
+            }
+
+            if (normalLevel && FindObjectOfType<Player>().GetActive()) {
+                active = false;
             }
 
         }

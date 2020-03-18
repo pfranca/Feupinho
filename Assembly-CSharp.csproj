@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Boss\MadEgg.cs" />
     <Compile Include="Assets\Scripts\Boss\Wave.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Camera\ObjectsMovement.cs" />
     <Compile Include="Assets\Scripts\Events\ApplyColorShader.cs" />
     <Compile Include="Assets\Scripts\Events\BackSperm.cs" />
     <Compile Include="Assets\Scripts\Events\Dissolve.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\Scripts\Ui\Bar.cs" />
     <Compile Include="Assets\Scripts\Ui\BlinkText.cs" />
     <Compile Include="Assets\Scripts\Ui\HighlightHandler.cs" />
+    <Compile Include="Assets\Scripts\Ui\LevelHighlightHandler.cs" />
     <Compile Include="Assets\Scripts\Ui\MenuController.cs" />
     <Compile Include="Assets\Scripts\Ui\Score.cs" />
     <Compile Include="Assets\Scripts\Ui\StartText.cs" />
