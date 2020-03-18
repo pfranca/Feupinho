@@ -22,6 +22,9 @@ public class Wave : MonoBehaviour {
         player = playerObject.GetComponent<Player>();
     }
     void FixedUpdate() {
+        if (player.GetDead()) {
+            velocityX = 0;
+        }
         if (player.GetActive() && oneCycle) {
             active = true;
             timeTillAction = Time.time + timeToAction;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class MadEgg : MonoBehaviour {
     [SerializeField] new GameObject camera;
@@ -13,6 +14,7 @@ public class MadEgg : MonoBehaviour {
 
     [SerializeField] Sprite sprite1;
     [SerializeField] Sprite sprite2;
+    [SerializeField] Sprite sprite3;
 
     [SerializeField] float animSecs = 0.5f;
     private float animeTime;
@@ -45,6 +47,15 @@ public class MadEgg : MonoBehaviour {
             animeTime = Time.time + animSecs;
             Color color = new Color(60, 0, 0, 1f);
             material.SetColor("_Color", color);
+            actionLight.GetComponent<Light2D>().color = new Color(1, 1, 1);
+            actionLight.SetActive(true);
+        }
+        if (collision.gameObject.tag == "Enemy2") {
+            spriteRenderer.sprite = sprite3;
+            animeTime = Time.time + animSecs;
+            Color color = new Color(60, 0, 0, 1f);
+            material.SetColor("_Color", color);
+            actionLight.GetComponent<Light2D>().color = new Color(0, 1, 0);
             actionLight.SetActive(true);
         }
     }

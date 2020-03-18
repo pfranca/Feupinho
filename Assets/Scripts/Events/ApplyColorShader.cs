@@ -7,8 +7,8 @@ public class ApplyColorShader : MonoBehaviour {
     void Start() {
         material = GetComponent<SpriteRenderer>().material;
         material.SetColor("_Color", Color.red);
-        material.SetFloat("_Fade", 0.80f);
-        material.SetFloat("_Scale", 22f);
+        material.SetFloat("_Fade", 0.90f);
+        material.SetFloat("_Scale", 13f);
     }
 
     void Update() {
