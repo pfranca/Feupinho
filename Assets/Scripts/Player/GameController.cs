@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
@@ -9,12 +7,14 @@ public class GameController : MonoBehaviour {
     public GameObject menuButton;
     public GameObject cannonTrail;
     public GameObject audioController;
+    public GameObject mouse;
 
     //Play once
     private bool cannonSound = false;
 
     private void Start() {
         Cursor.visible = false;
+        mouse.SetActive(false);
     }
     void Update() {
         PlayerDead();
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
                 restartButton.SetActive(true);
                 menuButton.SetActive(true);
             }
-            Cursor.visible = true;
+            mouse.SetActive(true);
         }
     }
     void PlayerActive() {
@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour {
                 restartButton.SetActive(true);
                 menuButton.SetActive(true);
             }
-            Cursor.visible = true;
+            mouse.SetActive(true);
         }
     }
     public void Restart() {

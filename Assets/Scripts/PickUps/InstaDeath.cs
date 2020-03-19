@@ -14,7 +14,7 @@ public class InstaDeath : MonoBehaviour {
             if (active) {
                 isDissolving = true;
                 active = false;
-                player.GetComponent<Player>().Die();
+                //player.GetComponent<Player>().Die();
             }
         }
     }
