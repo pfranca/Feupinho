@@ -19,6 +19,9 @@ public class ObjectsMovement : MonoBehaviour {
             active = true;
             fires.SetActive(true);
         }
+        if (FindObjectOfType<Player>().GetWon() || FindObjectOfType<Player>().GetDead()) {
+            fires.SetActive(false);
+        }
 
         if (active && FindObjectOfType<End>().transform.position.x < -3) {
             active = false;

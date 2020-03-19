@@ -11,9 +11,6 @@ public class EnemyMove : MonoBehaviour {
     public bool active = true;
     private float randomFactor;
     void Start() {
-        if(FindObjectOfType<CameraMovement>() != null) {
-            cameraPos = FindObjectOfType<CameraMovement>().transform.position.x;
-        }
         
         //randomFactor = Random.Range(1f, 2f);
         randomFactor = 1;
@@ -22,9 +19,9 @@ public class EnemyMove : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (active) {
-            if (FindObjectOfType<CameraMovement>() != null) {
+            /*if (FindObjectOfType<CameraMovement>() != null) {
                 cameraPos = FindObjectOfType<CameraMovement>().transform.position.x;
-            }
+            }*/
                 
             if (cameraPos >= movePos) {
                 transform.position += transform.right * (Time.deltaTime * (velocityX * randomFactor));

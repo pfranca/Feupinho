@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour {
     private bool cannonSound = false;
 
     private void Start() {
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
     void Update() {
         PlayerDead();
@@ -29,8 +29,7 @@ public class GameController : MonoBehaviour {
                 restartButton.SetActive(true);
                 menuButton.SetActive(true);
             }
-
-            
+            Cursor.visible = true;
         }
     }
     void PlayerActive() {
@@ -54,7 +53,7 @@ public class GameController : MonoBehaviour {
                 restartButton.SetActive(true);
                 menuButton.SetActive(true);
             }
-            
+            Cursor.visible = true;
         }
     }
     public void Restart() {

@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Destroy.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
     <Compile Include="Assets\Scripts\BlackVirus\BlackVirusScript.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\Ui\HighlightHandler.cs" />
     <Compile Include="Assets\Scripts\Ui\LevelHighlightHandler.cs" />
     <Compile Include="Assets\Scripts\Ui\MenuController.cs" />
+    <Compile Include="Assets\Scripts\Ui\Mouse.cs" />
     <Compile Include="Assets\Scripts\Ui\Score.cs" />
     <Compile Include="Assets\Scripts\Ui\StartText.cs" />
     <Compile Include="Assets\Scripts\Ui\TimeCounter.cs" />
