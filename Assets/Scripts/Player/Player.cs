@@ -48,7 +48,9 @@ public class Player : MonoBehaviour {
     void Start() {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        bar.SetMaxValue(energy);
+        if(bar != null) {
+            bar.SetMaxValue(energy);
+        }
         material = GetComponent<SpriteRenderer>().material;
         Color color = new Color(60,0,0,1f);
         animator.enabled = false;
@@ -224,7 +226,7 @@ public class Player : MonoBehaviour {
     }
     public void UpCurEnergy(float value) {
         curEnergy += value;
-        if(curEnergy > 100) {
+        if(curEnergy > energy) {
             curEnergy = energy;
         }
         bar.SetCurValue(curEnergy);

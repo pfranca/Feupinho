@@ -8,9 +8,11 @@ public class MenuController : MonoBehaviour {
     public GameObject loadingPanel;
     public GameObject playButton;
     public GameObject optionsButton;
+    public GameObject instructionsButton;
     public GameObject exitButton;
     public GameObject backButton;
     public GameObject allOptions;
+    public GameObject allInstructions;
     public GameObject fullscreenToggle;
     public GameObject levelSelector;
     public GameObject audioController;
@@ -30,6 +32,7 @@ public class MenuController : MonoBehaviour {
     bool back = false;
     bool play = false;
     bool loading = false;
+    bool instructions = false;
     int sideMenu = 1;
 
     private void Start() {
@@ -71,10 +74,21 @@ public class MenuController : MonoBehaviour {
                 camera.transform.position += transform.right * (Time.deltaTime * (cameraVelocityX * 0.9f));
             }
             else {
+                options = false;
                 backButton.SetActive(true);
                 allOptions.SetActive(true);
             }
         }
+        if(instructions) {
+            if (camera.transform.position.y > -13) {
+                camera.transform.position -= transform.up * (Time.deltaTime * (cameraVelocityX * 0.9f));
+            } else {
+                instructions = false;
+                backButton.SetActive(true);
+                allInstructions.SetActive(true);
+            }
+        }
+        
         if(back && sideMenu == 1) {
             if (camera.transform.position.x >= 0) {
                 camera.transform.position -= transform.right * (Time.deltaTime * (cameraVelocityX * 0.9f));
@@ -82,6 +96,7 @@ public class MenuController : MonoBehaviour {
             else {
                 playButton.SetActive(true);
                 optionsButton.SetActive(true);
+                instructionsButton.SetActive(true);
                 exitButton.SetActive(true);
             }
         }
@@ -93,6 +108,18 @@ public class MenuController : MonoBehaviour {
                 sideMenu = 1;
                 playButton.SetActive(true);
                 optionsButton.SetActive(true);
+                instructionsButton.SetActive(true);
+                exitButton.SetActive(true);
+            }
+        }
+        if(back && sideMenu == 3) {
+            if (camera.transform.position.y <= 0) {
+                camera.transform.position += transform.up * (Time.deltaTime * (cameraVelocityX * 0.9f));
+            } else {
+                sideMenu = 1;
+                playButton.SetActive(true);
+                optionsButton.SetActive(true);
+                instructionsButton.SetActive(true);
                 exitButton.SetActive(true);
             }
         }
@@ -121,6 +148,7 @@ public class MenuController : MonoBehaviour {
         loading = true;
         playButton.SetActive(false);
         optionsButton.SetActive(false);
+        instructionsButton.SetActive(false);
         exitButton.SetActive(false);
         levelSelector.SetActive(false);
         backButton.SetActive(false);
@@ -135,6 +163,7 @@ public class MenuController : MonoBehaviour {
         back = false;
         play = true;
         playButton.SetActive(false);
+        instructionsButton.SetActive(false);
         optionsButton.SetActive(false);
         exitButton.SetActive(false);
     }
@@ -146,15 +175,28 @@ public class MenuController : MonoBehaviour {
         options = true;
         playButton.SetActive(false);
         optionsButton.SetActive(false);
+        instructionsButton.SetActive(false);
         exitButton.SetActive(false);
     }
     public void Back() {
         back = true;
         options = false;
         play = false;
+        backButton.transform.localPosition = new Vector2(0, -185);
         backButton.SetActive(false);
         allOptions.SetActive(false);
+        allInstructions.SetActive(false);
         levelSelector.SetActive(false);
+    }
+    public void Instructions() {
+        sideMenu = 3;
+        back = false;
+        instructions = true;
+        backButton.transform.localPosition = new Vector2(550, -285);
+        playButton.SetActive(false);
+        optionsButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        exitButton.SetActive(false);
     }
 
     IEnumerator Load(int index) {
