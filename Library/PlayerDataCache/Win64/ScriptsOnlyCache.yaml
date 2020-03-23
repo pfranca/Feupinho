@@ -88,10 +88,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -185,8 +183,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 13060}
-    - Class: 114
       Script: {instanceID: 13318}
     - Class: 114
       Script: {instanceID: 13496}
@@ -203,15 +199,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13814}
     - Class: 114
-      Script: {instanceID: 13978}
-    - Class: 114
       Script: {instanceID: 14094}
     - Class: 114
       Script: {instanceID: 14148}
     - Class: 114
       Script: {instanceID: 14264}
-    - Class: 114
-      Script: {instanceID: 14426}
     - Class: 114
       Script: {instanceID: 14558}
     - Class: 114
@@ -1063,7 +1055,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 5df5f276cbafabbff7221dffe3295a3b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartText

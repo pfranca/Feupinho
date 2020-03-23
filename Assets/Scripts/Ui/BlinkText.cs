@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BlinkText : MonoBehaviour {
     TMPro.TextMeshProUGUI textMesh;
+    Image image;
     void Start() {
         textMesh = GetComponent<TMPro.TextMeshProUGUI>();
         BlinkStart();
